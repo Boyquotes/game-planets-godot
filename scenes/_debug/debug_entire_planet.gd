@@ -7,11 +7,9 @@ extends Node2D
 ## tilemap node
 @export var tilemap_node: Node
 
-# Called when the node enters the scene tree for the first time.
+var map_dict_from_json = {}
+var file_path_name = "res://scenes/game/mapmaking/json/planet_size_2.json"
+
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	var get_json = $DebugJsonFileToDict.parse_json_file(file_path_name) # this is our dictionary parsed from our json map made in tiled
+	print(typeof(get_json)) # variant (dictionary)
