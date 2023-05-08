@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb7a5wwpdcqic"]
+
+[ext_resource type="Script" path="res://scenes/game/mapmaking/mapmaker.gd" id="1_picx7"]
+[ext_resource type="Script" path="res://scenes/game/mapmaking/generate_array.gd" id="2_leomp"]
+[ext_resource type="Script" path="res://scenes/game/mapmaking/duplicate_array_for_layers.gd" id="3_3yf46"]
+
+[node name="Mapmaker" type="Node2D"]
+script = ExtResource("1_picx7")
+
+[node name="GenerateArray" type="Node2D" parent="."]
+script = ExtResource("2_leomp")
+
+[node name="DuplicateArrayForLayers" type="Node2D" parent="."]
+script = ExtResource("3_3yf46")
