@@ -1,6 +1,6 @@
 extends Node2D
 
-# function that takes in json file path string and returns 
+# function that takes in json file path string and returns dictionary (variant)
 
 func parse_json_file(file_path_name):
 #	var fileName = "res://scenes/game/mapmaking/json/planet_size_2.json"
@@ -11,6 +11,8 @@ func parse_json_file(file_path_name):
 #	return json.parse(contents)
 #	var test = 666
 #	return test
-	var json_string = JSON.parse_string(contents)
+	var json_dict = JSON.parse_string(contents)
 #	var parse_result = json.parse(json_string) # "cannot convert ... from dictionary to string"
-	return json_string
+#	print(json_dict.data)
+	print("json parsed into dict")
+	return json_dict

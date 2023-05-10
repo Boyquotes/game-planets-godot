@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cthasg0dk22tk"]
+[gd_scene load_steps=5 format=3 uid="uid://cthasg0dk22tk"]
 
 [ext_resource type="Script" path="res://scenes/_debug/debug_entire_planet.gd" id="1_6cgne"]
 [ext_resource type="TileSet" uid="uid://hy5fdq83hlqi" path="res://assets/simple_tileset/simple_tileset.tres" id="2_1pydk"]
 [ext_resource type="Script" path="res://scenes/_debug/debug_json_file_to_dict.gd" id="3_0yam6"]
+[ext_resource type="Script" path="res://scenes/_debug/debug_dict_to_2d_array.gd" id="4_42615"]
 
 [node name="DebugEntirePlanet" type="Node2D" node_paths=PackedStringArray("tilemap_node")]
 script = ExtResource("1_6cgne")
@@ -15,3 +16,6 @@ layer_0/tile_data = PackedInt32Array(0, 0, 3, 1, 0, 3, 65537, 0, 3, 65536, 0, 3,
 
 [node name="DebugJsonFileToDict" type="Node2D" parent="."]
 script = ExtResource("3_0yam6")
+
+[node name="DebugDictTo2dArray" type="Node2D" parent="."]
+script = ExtResource("4_42615")
