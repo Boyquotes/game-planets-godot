@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oybpjxlnsh62"
-path="res://.godot/imported/spritesheet.png-3e9f81ffc10b7b47b5edd08a0fedec36.ctex"
+uid="uid://koi3gln57csi"
+path="res://.godot/imported/_debug_texture_atlas _checkall.png-23aa2c146e12c60e6775ac5b1f109177.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/simple_tileset/spritesheet.png"
-dest_files=["res://.godot/imported/spritesheet.png-3e9f81ffc10b7b47b5edd08a0fedec36.ctex"]
+source_file="res://assets/_debug_tile_set/_debug_texture_atlas _checkall.png"
+dest_files=["res://.godot/imported/_debug_texture_atlas _checkall.png-23aa2c146e12c60e6775ac5b1f109177.ctex"]
 
 [params]
 

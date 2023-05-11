@@ -1,21 +1,78 @@
-[gd_scene load_steps=5 format=3 uid="uid://cthasg0dk22tk"]
+[gd_scene load_steps=18 format=3 uid="uid://g03knam2mcef"]
 
 [ext_resource type="Script" path="res://scenes/_debug/debug_entire_planet.gd" id="1_6cgne"]
-[ext_resource type="TileSet" uid="uid://hy5fdq83hlqi" path="res://assets/simple_tileset/simple_tileset.tres" id="2_1pydk"]
+[ext_resource type="Texture2D" uid="uid://by2p1njvdg3v8" path="res://assets/_debug_tile_set/b01_cliffCenter_01_temp.png" id="2_p1kl7"]
 [ext_resource type="Script" path="res://scenes/_debug/debug_json_file_to_dict.gd" id="3_0yam6"]
+[ext_resource type="Texture2D" uid="uid://b1bnsq8kuwueg" path="res://assets/_debug_tile_set/b01_grass_01_temp.png" id="3_efph7"]
+[ext_resource type="Texture2D" uid="uid://ltmllu3xusyr" path="res://assets/_debug_tile_set/b01_grass_02_temp.png" id="4_7cyj5"]
 [ext_resource type="Script" path="res://scenes/_debug/debug_dict_to_2d_array.gd" id="4_42615"]
+[ext_resource type="Texture2D" uid="uid://bdwtpllwcrdb2" path="res://assets/_debug_tile_set/debug_purple.png" id="5_k75lr"]
+[ext_resource type="Script" path="res://scenes/_debug/_debug_set_tiles.gd" id="8_iyd41"]
+[ext_resource type="Script" path="res://scenes/_debug/debug_add_noise.gd" id="9_eigsq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khwk7"]
+texture = ExtResource("3_efph7")
+texture_region_size = Vector2i(100, 100)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86sk2"]
+texture = ExtResource("4_7cyj5")
+texture_region_size = Vector2i(100, 100)
+
+[sub_resource type="TileSet" id="TileSet_y5t38"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_khwk7")
+sources/1 = SubResource("TileSetAtlasSource_86sk2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hn6pp"]
+texture = ExtResource("2_p1kl7")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qhop6"]
+texture = ExtResource("3_efph7")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_syj6c"]
+texture = ExtResource("4_7cyj5")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nynoe"]
+texture = ExtResource("5_k75lr")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rtlnr"]
+resource_name = "_debug_tileset"
+sources/0 = SubResource("TileSetAtlasSource_hn6pp")
+sources/1 = SubResource("TileSetAtlasSource_qhop6")
+sources/2 = SubResource("TileSetAtlasSource_syj6c")
+sources/3 = SubResource("TileSetAtlasSource_nynoe")
 
 [node name="DebugEntirePlanet" type="Node2D" node_paths=PackedStringArray("tilemap_node")]
 script = ExtResource("1_6cgne")
 tilemap_node = NodePath("DebugEntirePlanetTileMap")
+tileset_source = SubResource("TileSet_y5t38")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1093, 466)
+zoom = Vector2(0.938, 0.938)
+metadata/_edit_group_ = true
 
 [node name="DebugEntirePlanetTileMap" type="TileMap" parent="."]
-tile_set = ExtResource("2_1pydk")
+tile_set = SubResource("TileSet_rtlnr")
+cell_quadrant_size = 100
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 3, 1, 0, 3, 65537, 0, 3, 65536, 0, 3, 2, 0, 3, 65538, 0, 3, 131072, 0, 3, 131073, 0, 3, 131074, 0, 3)
 
 [node name="DebugJsonFileToDict" type="Node2D" parent="."]
 script = ExtResource("3_0yam6")
 
 [node name="DebugDictTo2dArray" type="Node2D" parent="."]
 script = ExtResource("4_42615")
+
+[node name="DebugSetTiles" type="Node2D" parent="."]
+script = ExtResource("8_iyd41")
+
+[node name="DebugAddNoise" type="Node2D" parent="."]
+script = ExtResource("9_eigsq")
