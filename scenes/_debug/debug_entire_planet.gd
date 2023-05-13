@@ -28,5 +28,5 @@ func _ready():
 	var map_array = $DebugDictTo2dArray.dict_to_array(map_width, map_height, map_dict)
 	$DebugAddNoise.add_noise_to_array(map_array, random_seed, random_seed_fill_percent)
 	$DebugSetTiles.set_tiles_in_tilemap(map_array, tilemap_node, tileset_source)
-	$DebugEdgeTilePairs.populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict)
-	
+	$DebugEdgeTilePairs.populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, section_size)
+

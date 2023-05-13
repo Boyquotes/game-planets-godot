@@ -9,9 +9,9 @@ extends Node2D
 #instance.hello()
 
 
-func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict):
+func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, section_size):
 	var equator = map_array[0].size() / 2
-	var hemisphere = "" 
+	# TODO: see if we can run these without instancing (something about static functions...)
 	var edge_tile_1 = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_1_main_neighborhood.gd")
 	var edge_tile_1_instance = edge_tile_1.new()
 	var edge_tile_2 = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_redirect_logic.gd")
@@ -44,7 +44,7 @@ func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict):
 	# then loop through the keys (array of coords) in the dict and run through our edge coords conditionals to run the appropriate algorithm to find its neighbors
 	# TODO: edge_tile_2_redirect_logic
 	for i in edge_tile_pair_dict:
-		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict)
+		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict, map_size, section_size, equator, hemisphere)
 
 	# for each neighbor, add the direction and target coords to the appropriate nested dict, for example:
 	# edge_tile_pair_dict[[10,10]].left = [9,10]
