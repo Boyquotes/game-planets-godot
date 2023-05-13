@@ -24,10 +24,9 @@ var edge_tile_pair_dict = {}
 
 func _ready():
 	seed(random_seed) # adds to seed to random methods in global scope, now we can just use godot's random methods and they will pull from this seed
-	print("map_width: ", map_width)
-	print("map_height: ", map_height)
 	var map_dict = $DebugJsonFileToDict.parse_json_file(file_path_name) # this is our dictionary (variant) parsed from our json map made in tiled
 	var map_array = $DebugDictTo2dArray.dict_to_array(map_width, map_height, map_dict)
 	$DebugAddNoise.add_noise_to_array(map_array, random_seed, random_seed_fill_percent)
 	$DebugSetTiles.set_tiles_in_tilemap(map_array, tilemap_node, tileset_source)
-	$DebugEdgeTilePairs.populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict)
+	$DebugEdgeTilePairs.populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, section_size)
+
