@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0p06c426ntua"]
+
+[ext_resource type="Script" path="res://scenes/game/levels/planet_section/level_planet_section.gd" id="1_gycx8"]
+
+[node name="LevelPlanetSection" type="Node2D"]
+script = ExtResource("1_gycx8")

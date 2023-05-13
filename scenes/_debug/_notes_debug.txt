@@ -1,0 +1,2 @@
+This is where we will put our entire planet scene to debug mapmaking.
+The actual playable planet section scene are in levels/planet_section.
