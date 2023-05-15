@@ -6,27 +6,22 @@
 
 # TODO: may want to add another row/column of 0s in tiled json file so that we have 0s surrounding entire useable tilemap - will help having to do these weird conditionals because checking for neighbors that don't exist at all doesn't return null, it errors out
 
-func is_edge_tile(map_array, coords_to_check, return_dict, skip_east, skip_south):
+func is_edge_tile(map_array, coords, return_dict):
 	return_dict = {}
-	# east edge of map check so attempting to access outside bounds of array below doesn't happen (errors)
-	if coords_to_check[0] == map_array.size() - 1:
-		return_dict["east"] = []
-		skip_east = true
-	# south edge of map check so attempting to access outside bounds of array below doesn't happen (errors)
-	if coords_to_check[1] == map_array[0].size() - 1:
-		return_dict["south"] = []
-		skip_south = true
+	if coords[1] > 400:
+		print(coords[0], ", ", coords[1])
+#	print(map_array[coords[0]][coords[402]])
 	# north (y-1)
-	if map_array[coords_to_check[0]][coords_to_check[1] - 1] == 0 || map_array[coords_to_check[0]][coords_to_check[1] - 1] == null:
+	if map_array[coords[0]][coords[1] - 1] == 0 || map_array[coords[0]][coords[1] - 1] == null:
 		return_dict["north"] = []
-	# south (y+1)
-	if (map_array[coords_to_check[0]][coords_to_check[1] + 1] == 0 || map_array[coords_to_check[0]][coords_to_check[1] + 1] == null)&& skip_south == false:
+	# south (y+1) - ERROR invalid get index 403
+	if map_array[coords[0]][coords[1] + 1] == 0 || map_array[coords[0]][coords[1] + 1] == null:
 		return_dict["south"] = []
 	# east (x+1)
-	if (map_array[coords_to_check[0] + 1][coords_to_check[1]] == 0 || map_array[coords_to_check[0] + 1][coords_to_check[1]] == null) && skip_east == false:
+	if map_array[coords[0] + 1][coords[1]] == 0 || map_array[coords[0] + 1][coords[1]] == null:
 		return_dict["east"] = []
 	# west (x-1)
-	if map_array[coords_to_check[0] - 1][coords_to_check[1]] == 0 || map_array[coords_to_check[0] - 1][coords_to_check[1]] == null:
+	if map_array[coords[0] - 1][coords[1]] == 0 || map_array[coords[0] - 1][coords[1]] == null:
 		return_dict["west"] = []
 
 	return return_dict

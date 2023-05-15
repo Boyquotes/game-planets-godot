@@ -13,12 +13,12 @@ extends Node2D
 # from mapmaker:
 var map_size = 2
 var section_size = 100
-var map_width = (map_size * section_size) * 4 + 1
-var map_height = map_width / 2 + 1
+var map_width = (map_size * section_size) * 4 + 2
+var map_height = map_width / 2 + 2
 
 
 var map_dict_from_json = {}
-var file_path_name = "res://scenes/game/mapmaking/json/planet_size_2.json"
+var file_path_name = "res://tiled/planet_size_2.json"
 
 var edge_tile_pair_dict = {}
 

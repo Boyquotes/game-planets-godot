@@ -29,22 +29,22 @@ func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, sect
 	var skip_south = false
 	var response
 	# TODO: loop through map array and check neighboring tiles for 0s (if it has a 0 neighbor, it is an edge tile)
-	for j in map_array[0].size():
-		for i in map_array.size():
+	for j in map_array[0].size() - 1:
+		for i in map_array.size() - 1:
 			if map_array[i][j] != 0:
 				# will return true if coords are an edge tile:
-				response = edge_tile_1_instance.is_edge_tile(map_array, [i,j], return_dict, skip_east, skip_south)
+				response = edge_tile_1_instance.is_edge_tile(map_array, [i,j], return_dict)
 				if response != {}:
 					# add an key of coords with dict from is_edge_tile response
 					edge_tile_pair_dict[[i,j]] = response
 	# print(edge_tile_pair_dict) # we now have all edge coords as keys with dicts of direction keys with empty arrays as values - next we need to run algo to add the paired tiles to those empty array values of direction keys
 	
-	print("1,1: ", edge_tile_pair_dict[[1,1]])
+#	print("1,1: ", edge_tile_pair_dict[[1,1]])
 	
 	# then loop through the keys (array of coords) in the dict and run through our edge coords conditionals to run the appropriate algorithm to find its neighbors
 	# TODO: edge_tile_2_redirect_logic
 	for i in edge_tile_pair_dict:
-		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict, map_size, section_size, equator, hemisphere)
+		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict, map_size, section_size, equator)
 
 	# for each neighbor, add the direction and target coords to the appropriate nested dict, for example:
 	# edge_tile_pair_dict[[10,10]].left = [9,10]
