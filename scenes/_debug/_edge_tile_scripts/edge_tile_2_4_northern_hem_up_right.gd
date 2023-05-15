@@ -41,12 +41,12 @@ static func edge_tile_northern_hem_up_right(map_size, section_size, x_in, y_in):
 			section_gap = map_size - 30
 
 	var section_gap_tiles = section_gap * section_size
-    var x_out = x_in + section_gap_tiles + x_in_diff + 1
-    var y_out = y_in - x_in_diff - 1
-    # correcting for top right tiles (ex. for map_size = 4: 600, 101)
-    if x_in % section_size == 0:
-        y_out = y_in
-        x_out -= section_size
+	var x_out = x_in + section_gap_tiles + x_in_diff + 1
+	var y_out = y_in - x_in_diff - 1
+	# correcting for top right tiles (ex. for map_size = 4: 600, 101)
+	if x_in % section_size == 0:
+		y_out = y_in
+		x_out -= section_size
 
 #	print("input: ", x_in, ", ", y_in)
 #	print("output: ", x_out, ", ", y_out)

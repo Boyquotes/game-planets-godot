@@ -5,6 +5,8 @@ static func edge_tile_northern_hem_up_left(map_size, section_size, x_in, y_in):
 	var section_row = ceil(y_in / section_size)
 	var section_gap
 	var x_in_diff = x_in % section_size
+	print("input: ", x_in, ", ", y_in)
+	print(section_row)
 	
 	match (section_row):
 		1:
@@ -40,16 +42,17 @@ static func edge_tile_northern_hem_up_left(map_size, section_size, x_in, y_in):
 		16:
 			section_gap = map_size - 31
 
+	print(section_gap)
 	var section_gap_tiles = section_gap * section_size
-    var x_out = x_in - section_gap_tiles - x_in_diff
-    var y_out = y_in + (section_size - x_in_diff) - 1
-    # correcting for top right tiles (ex. for map_size = 4: 1200, 101)
-    if x_in % section_size == 0:
-        y_out = y_in
-        x_out -= section_size
-    # correcting for top left tiles (ex. for map_size = 4: 301, 101)
-    if x_in % section_size == 1:
-        y_out += 1
+	var x_out = x_in - section_gap_tiles - x_in_diff
+	var y_out = y_in + (section_size - x_in_diff) - 1
+	# correcting for top right tiles (ex. for map_size = 4: 1200, 101)
+	if x_in % section_size == 0:
+		y_out = y_in
+		x_out -= section_size
+	# correcting for top left tiles (ex. for map_size = 4: 301, 101)
+	if x_in % section_size == 1:
+		y_out += 1
 
 #	print("input: ", x_in, ", ", y_in)
 #	print("output: ", x_out, ", ", y_out)
