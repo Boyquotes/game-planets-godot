@@ -1,8 +1,9 @@
 
 # adapted from new_edge_coords... .js
 
-static func edge_tile_northern_hem_left(map_size, section_size, x_in, y_in):
+static func edge_tile_southern_hem_left(map_size, section_size, x_in, y_in):
 	var section_row = ceil(y_in / section_size)
+    section_row = abs(section_row - map_size * 2 - 1)
 	var section_gap
 	var y_in_diff = section_size - y_in % section_size
 	
@@ -41,12 +42,15 @@ static func edge_tile_northern_hem_left(map_size, section_size, x_in, y_in):
 			section_gap = map_size - 32
 
 	var section_gap_tiles = section_gap * section_size
-	var x_out = x_in - section_gap_tiles - y_in_diff - 1
-	var y_out = y_in + y_in_diff + 1
-	# correcting for bottom left tiles (ex. for map_size = 2: 401, 100)
-	if x_in % section_size == 1 && y_in section_size == 0:
-		x_out += section_size
-		y_out -= section_size
+    var x_out = x_in - section_gap_tiles - (section_size - y_in_diff) - 1
+    var y_out = y_in - (section_size - y_in_diff)
+    # correcting for top left tiles (ex. for map_size = 4: 701, 601)
+    if y_in % section_size == 1:
+        x_out += 1
+    # correcting for bottom left tiles (ex. for map_size = 4: 801, 800)
+    if y_in % section_size == 0:
+        x_out -= section_size - 1
+        y_out -= section_size
 
 #	print("input: ", x_in, ", ", y_in)
 #	print("output: ", x_out, ", ", y_out)
