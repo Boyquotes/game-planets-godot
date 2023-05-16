@@ -12,9 +12,9 @@ extends Node2D
 func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, section_size, map_width):
 	var equator = map_array[0].size() / 2
 	# TODO: see if we can run these without instancing (something about static functions...)
-	var edge_tile_1 = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_1_main_neighborhood.gd")
+	var edge_tile_1 = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_1_main_neighborhood.gd")
 	var edge_tile_1_instance = edge_tile_1.new()
-	var edge_tile_2 = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_redirect_logic.gd")
+	var edge_tile_2 = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_redirect_logic.gd")
 	var edge_tile_2_instance = edge_tile_2.new()
 	# key value pair structure with sub dict:
 	# {[2,2]: {"down": [2,1], "left": [1,2]}
@@ -50,4 +50,4 @@ func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, sect
 	# edge_tile_pair_dict[[10,10]].left = [9,10]
 	# ^^ we can do it this way because [10,10] : {} should already exist
 	
-	print(edge_tile_pair_dict)
+#	print(edge_tile_pair_dict)

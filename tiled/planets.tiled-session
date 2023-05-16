@@ -13,11 +13,11 @@
             "scaleInEditor": 1
         },
         "planet_size_2.tmx": {
-            "scale": 0.015625,
+            "scale": 0.0625,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 40096,
-                "y": 19168
+                "x": 2472,
+                "y": 88
             }
         }
     },

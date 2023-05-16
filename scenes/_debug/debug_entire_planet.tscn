@@ -1,18 +1,18 @@
-[gd_scene load_steps=23 format=3 uid="uid://m41yylmjuq5u"]
+[gd_scene load_steps=23 format=3 uid="uid://rp26goyy5ajc"]
 
 [ext_resource type="Script" path="res://scenes/_debug/debug_entire_planet.gd" id="1_6cgne"]
-[ext_resource type="Script" path="res://scenes/_debug/debug_json_file_to_dict.gd" id="3_0yam6"]
 [ext_resource type="Texture2D" uid="uid://b1bnsq8kuwueg" path="res://assets/_debug_tile_set/b01_grass_01_temp.png" id="3_efph7"]
 [ext_resource type="Texture2D" uid="uid://ltmllu3xusyr" path="res://assets/_debug_tile_set/b01_grass_02_temp.png" id="4_7cyj5"]
-[ext_resource type="Script" path="res://scenes/_debug/debug_dict_to_2d_array.gd" id="4_42615"]
 [ext_resource type="Texture2D" uid="uid://bdwtpllwcrdb2" path="res://assets/_debug_tile_set/debug_purple.png" id="5_k75lr"]
 [ext_resource type="Texture2D" uid="uid://fj442ur3hxub" path="res://assets/_debug_tile_set/Rectangle 255.png" id="5_swt24"]
 [ext_resource type="Texture2D" uid="uid://cxadmvgvvkl3p" path="res://assets/_debug_tile_set/Rectangle 256.png" id="6_tlpxh"]
 [ext_resource type="Texture2D" uid="uid://d3e1xmfkn22pj" path="res://assets/_debug_tile_set/Rectangle 258.png" id="7_16uc7"]
 [ext_resource type="Script" path="res://scenes/_debug/debug_set_tiles.gd" id="8_0qvvm"]
 [ext_resource type="Texture2D" uid="uid://d1rqu0nvucsj" path="res://assets/_debug_tile_set/Rectangle 259.png" id="8_lji0n"]
-[ext_resource type="Script" path="res://scenes/_debug/debug_add_noise.gd" id="9_eigsq"]
-[ext_resource type="Script" path="res://scenes/_debug/debug_edge_tile_pairs.gd" id="13_h1nh6"]
+[ext_resource type="Script" path="res://scenes/game/mapmaker/json_file_to_dict.gd" id="9_qugbd"]
+[ext_resource type="Script" path="res://scenes/game/mapmaker/dict_to_2d_array.gd" id="10_fo0ox"]
+[ext_resource type="Script" path="res://scenes/game/mapmaker/add_noise.gd" id="11_3ka0l"]
+[ext_resource type="Script" path="res://scenes/game/mapmaker/edge_tile_pairs.gd" id="13_y3oj2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_khwk7"]
 texture = ExtResource("3_efph7")
@@ -75,16 +75,16 @@ cell_quadrant_size = 100
 format = 2
 
 [node name="DebugJsonFileToDict" type="Node2D" parent="."]
-script = ExtResource("3_0yam6")
+script = ExtResource("9_qugbd")
 
 [node name="DebugDictTo2dArray" type="Node2D" parent="."]
-script = ExtResource("4_42615")
+script = ExtResource("10_fo0ox")
 
 [node name="DebugAddNoise" type="Node2D" parent="."]
-script = ExtResource("9_eigsq")
+script = ExtResource("11_3ka0l")
 
 [node name="DebugSetTiles" type="Node2D" parent="."]
 script = ExtResource("8_0qvvm")
 
 [node name="DebugEdgeTilePairs" type="Node2D" parent="."]
-script = ExtResource("13_h1nh6")
+script = ExtResource("13_y3oj2")

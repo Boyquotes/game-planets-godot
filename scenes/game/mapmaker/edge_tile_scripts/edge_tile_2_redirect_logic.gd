@@ -12,16 +12,16 @@ func edge_tile_redirect_logic(coords, edge_tile_pair_dict, map_size, section_siz
 	var slice_column = section_column % map_size
 	var secondary_direction = "east" if slice_column > 1 && slice_column <= map_size /2 + 1 else "west"
 	
-	var northern_hem_left = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_1_northern_hem_left.gd")
+	var northern_hem_left = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_1_northern_hem_left.gd")
 #	var northern_hem_left_instance = northern_hem_left.new()
-	var northern_hem_right = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_2_northern_hem_right.gd")
-	var northern_hem_up_left = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_3_northern_hem_up_left.gd")
-	var northern_hem_up_right = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_4_northern_hem_up_right.gd")
-	var southern_hem_down_left = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_5_southern_hem_down_left.gd")
-	var southern_hem_down_right = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_6_southern_hem_down_right.gd")
-	var southern_hem_left = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_7_southern_hem_left.gd")
-	var southern_hem_right = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_2_8_southern_hem_right.gd")
-	var out_of_map_bounds_redirect = preload("res://scenes/_debug/_edge_tile_scripts/edge_tile_3_out_of_map_bounds_redirect.gd")
+	var northern_hem_right = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_2_northern_hem_right.gd")
+	var northern_hem_up_left = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_3_northern_hem_up_left.gd")
+	var northern_hem_up_right = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_4_northern_hem_up_right.gd")
+	var southern_hem_down_left = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_5_southern_hem_down_left.gd")
+	var southern_hem_down_right = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_6_southern_hem_down_right.gd")
+	var southern_hem_left = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_7_southern_hem_left.gd")
+	var southern_hem_right = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_2_8_southern_hem_right.gd")
+	var out_of_map_bounds_redirect = preload("res://scenes/game/mapmaker/edge_tile_scripts/edge_tile_3_out_of_map_bounds_redirect.gd")
 
 	# using a loop because some coords will have more than one direction
 	for i in edge_tile_pair_dict[[x_in, y_in]]:
