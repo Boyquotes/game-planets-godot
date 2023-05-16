@@ -44,8 +44,10 @@ func populate_edge_tile_pair_dict(map_array, edge_tile_pair_dict, map_size, sect
 	# then loop through the keys (array of coords) in the dict and run through our edge coords conditionals to run the appropriate algorithm to find its neighbors
 	# TODO: edge_tile_2_redirect_logic
 	for i in edge_tile_pair_dict:
-		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict, map_size, section_size, equator)
+		edge_tile_2_instance.edge_tile_redirect_logic(i, edge_tile_pair_dict, map_size, section_size, equator, map_array)
 
 	# for each neighbor, add the direction and target coords to the appropriate nested dict, for example:
 	# edge_tile_pair_dict[[10,10]].left = [9,10]
 	# ^^ we can do it this way because [10,10] : {} should already exist
+	
+	print(edge_tile_pair_dict)

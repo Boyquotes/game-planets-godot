@@ -2,7 +2,8 @@
 # adapted from new_edge_coords... .js
 
 static func edge_tile_northern_hem_right(map_size, section_size, x_in, y_in):
-	var section_row = ceil(y_in / section_size)
+	var section_row = ceil(float(y_in) / float(section_size))
+	section_row = int(section_row)
 	var section_gap
 	var y_in_diff = y_in % section_size
 	
