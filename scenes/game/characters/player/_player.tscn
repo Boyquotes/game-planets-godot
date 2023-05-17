@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdv6ls70dgef0"]
+
+[ext_resource type="Script" path="res://scenes/game/characters/player/_player.gd" id="1_uhlby"]
+[ext_resource type="Texture2D" uid="uid://cxadmvgvvkl3p" path="res://assets/_debug_tile_set/Rectangle 256.png" id="2_uexat"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p7o7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uexat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="_Player" type="Node2D"]
+script = ExtResource("1_uhlby")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p7o7q")
