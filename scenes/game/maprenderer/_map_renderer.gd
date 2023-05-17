@@ -13,46 +13,42 @@ func render_map(edge_tile_pair_dict, map_array, current_player_coords, section_s
 	
 	var section_origin_coords = []
 	var section_coord_array = []
+	
 	# rounding down to current section's 1,1 origin tile:
-	# condition: player is already at the origin tile
+	# condition making sure player isn't already at the origin tile, otherwise finding the origin tile
 	if current_player_coords[0] % section_size == 1 && current_player_coords[1] % section_size == 1:
 		section_origin_coords = current_player_coords
 	else:
 		section_origin_coords = [(current_player_coords[0] + section_size) - (current_player_coords[0] % section_size + section_size - 1), (current_player_coords[1] + section_size) - (current_player_coords[1] % section_size + section_size - 1)]
-		
-	print("origin: ", section_origin_coords)
-	# now we have section_origin_coords to start rendering "sections"
-	# start a 100x100 loop
-	for j in section_size:
-		for i in section_size:
-			# add all section coords to a 2d array
-			section_coord_array.append([section_origin_coords[0] + i, section_origin_coords[1] + j])
-			# use % section_size on these when placing so that ex. [456, 298] would render at coords [56, 98] on the tile map
 
+	
+	# now we have section_origin_coords to start rendering "sections"
+	# we are going to put these into a 2d loop (section_coord_array)
+	# the indexes are the tile map coords, and the values are the map array (data) coords
+	# start a 100x100 loop
+	for i in section_size:
+		section_coord_array.append([])
+		for j in section_size:
+			# add all section coords to a 2d array
+			section_coord_array[i].append([section_origin_coords[0] + j, section_origin_coords[1] + i])
+
+	
 	render_tiles_in_tilemap(section_coord_array, tile_map_node, tile_set_source, section_size, map_array)
 
-func render_tiles_in_tilemap(section_coord_array, tilemap_node, tileset_source, section_size, map_array):
-	var x = 666
-	var y = 666
-	
-	for j in section_coord_array[0].size(): # height
-		for i in section_coord_array.size(): # width
-			# using % section_size on these when placing so that ex. [456, 298] would render at coords [56, 98] on the tile map
-			if i == section_size:
-				x = i
-			else:
-				x = i % section_size
-				
-			if i == section_size:
-				y = j
-			else:
-				y = j % section_size
-				
-			print(map_array)
-			if map_array[i][j] == 1:
-				# set tile 1
-				tilemap_node.set_cell(0, Vector2i(x,y), 0, Vector2i(0,0))
-			elif map_array[i][j] == 2:
-				tilemap_node.set_cell(0, Vector2i(x,y), 1, Vector2i(0,0))
-				
+func render_tiles_in_tilemap(section_coord_array, tile_map_node, tileset_source, section_size, map_array):
+	# this function takes in a 2d array (section_coord_array)
+	# this array's indexes are the coords to be placed in tile_map_node (1,1 -> 100,100)
+	# each index's value has an array of coords (ex. [248,611])
+	# we use these to access data in the map_array
+	for i in section_coord_array[0].size():
+		for j in section_coord_array[1].size():
+			# set tile 1
+			if map_array[section_coord_array[i][j][1]][section_coord_array[i][j][0]] == 1:
+				tile_map_node.set_cell(0, Vector2i(i + 1, j + 1), 0, Vector2i(0,0))
+			# set tile 2
+			elif map_array[section_coord_array[i][j][1]][section_coord_array[i][j][0]] == 2:
+				tile_map_node.set_cell(0, Vector2i(i + 1, j + 1), 1, Vector2i(0,0))
+#			print("section_coord_array[i][j][0]: ", section_coord_array[i][j][0])
+#			print("section_coord_array[i][j][1]: ", section_coord_array[i][j][1])
+			
 	print("tiles set into tilemap")

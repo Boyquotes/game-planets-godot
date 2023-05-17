@@ -1,12 +1,13 @@
 extends Node2D
 
 # generating 2d array:
-func dict_to_array(map_width, map_height, map_dict):
-	var map_array = []
+func dict_to_array(map_width, map_height, map_dict, map_array):
+#	var map_array = []
 	for i in map_width:
 		map_array.append([])
-		for j in map_height:
-			map_array[i].append(666) # adding 666 to each cell
+		for j in map_height - 1:
+#			map_array[i].append(666) # adding 666 to each cell
+			map_array[i].append(45678)
 
 	# putting our dict values (1s and 0s) into 2d array :
 	var x = 0

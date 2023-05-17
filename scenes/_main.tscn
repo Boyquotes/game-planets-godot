@@ -27,15 +27,16 @@ current_player_coords = [284, 712]
 tile_map = NodePath("TileMap")
 
 [node name="_MapMaker" parent="." instance=ExtResource("2_j4nbq")]
+random_seed_fill_percent = 5
 
 [node name="_MapRenderer" parent="." instance=ExtResource("3_tsp8w")]
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(501, 500)
+position = Vector2(2.08165e-12, 2.08165e-12)
 tile_set = SubResource("TileSet_dyjna")
 format = 2
-layer_0/tile_data = PackedInt32Array(-262149, 0, 0)
+layer_0/tile_data = PackedInt32Array(-1, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2087, 1732)
-zoom = Vector2(0.1, 0.1)
+offset = Vector2(5000, 5000)
+zoom = Vector2(0.083, 0.083)
