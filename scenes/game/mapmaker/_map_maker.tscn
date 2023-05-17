@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp8cdffmgidor"]
+[gd_scene load_steps=6 format=3 uid="uid://c4fdvdtx7b16a"]
 
-[ext_resource type="Script" path="res://scenes/game/mapmaker/_mapmaker.gd" id="1_jmqxe"]
+[ext_resource type="Script" path="res://scenes/game/mapmaker/_map_maker.gd" id="1_11p53"]
 [ext_resource type="Script" path="res://scenes/game/mapmaker/json_file_to_dict.gd" id="2_lg0tt"]
 [ext_resource type="Script" path="res://scenes/game/mapmaker/dict_to_2d_array.gd" id="3_knb4o"]
 [ext_resource type="Script" path="res://scenes/game/mapmaker/add_noise.gd" id="4_kdcvi"]
 [ext_resource type="Script" path="res://scenes/game/mapmaker/edge_tile_pairs.gd" id="5_lxcom"]
 
 [node name="_Mapmaker" type="Node2D"]
-script = ExtResource("1_jmqxe")
+script = ExtResource("1_11p53")
 
 [node name="JsonFileToDict" type="Node2D" parent="."]
 script = ExtResource("2_lg0tt")

@@ -11,15 +11,15 @@ extends Node2D
 @export var random_seed_fill_percent = 60
 @export var map_size = 2
 
-var section_size = 100
-var map_width = (map_size * section_size) * 4 + 2
-var map_height = map_width / 2 + 2
+
 var map_dict_from_json = {}
 var file_path_name = "res://tiled/planet_size_2.json"
 
 #var edge_tile_pair_dict = {}
 
-func make_map(edge_tile_pair_dict, map_array):
+func make_map(edge_tile_pair_dict, map_array, section_size):
+	var map_width = (map_size * section_size) * 4 + 2
+	var map_height = map_width / 2 + 2
 	seed(random_seed) # adds to seed to random methods in global scope, now we can just use godot's random methods and they will pull from this seed
 	var map_dict = $JsonFileToDict.parse_json_file(file_path_name) # this is our dictionary (variant) parsed from our json map made in tiled
 	map_array = $DictTo2dArray.dict_to_array(map_width, map_height, map_dict)

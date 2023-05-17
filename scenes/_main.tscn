@@ -1,9 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://eee6tixwn8yp"]
+[gd_scene load_steps=9 format=3 uid="uid://2x71bcnx4umm"]
 
 [ext_resource type="Script" path="res://scenes/_main.gd" id="1_m4y2c"]
-[ext_resource type="PackedScene" uid="uid://bp8cdffmgidor" path="res://scenes/game/mapmaker/_mapmaker.tscn" id="2_j4nbq"]
+[ext_resource type="PackedScene" uid="uid://c4fdvdtx7b16a" path="res://scenes/game/mapmaker/_map_maker.tscn" id="2_j4nbq"]
+[ext_resource type="PackedScene" uid="uid://dskvy7yahfemq" path="res://scenes/game/maprenderer/_map_renderer.tscn" id="3_tsp8w"]
+[ext_resource type="Texture2D" uid="uid://fj442ur3hxub" path="res://assets/_debug_tile_set/Rectangle 255.png" id="4_0afl6"]
+[ext_resource type="Texture2D" uid="uid://bdwtpllwcrdb2" path="res://assets/_debug_tile_set/debug_purple.png" id="5_f1vi2"]
 
-[node name="_Main" type="Node"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_howcp"]
+texture = ExtResource("4_0afl6")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dvv4p"]
+texture = ExtResource("5_f1vi2")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dyjna"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_howcp")
+sources/1 = SubResource("TileSetAtlasSource_dvv4p")
+
+[node name="_Main" type="Node" node_paths=PackedStringArray("tile_map")]
 script = ExtResource("1_m4y2c")
+current_player_coords = [284, 712]
+tile_map = NodePath("TileMap")
 
-[node name="_Mapmaker" parent="." instance=ExtResource("2_j4nbq")]
+[node name="_MapMaker" parent="." instance=ExtResource("2_j4nbq")]
+
+[node name="_MapRenderer" parent="." instance=ExtResource("3_tsp8w")]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(501, 500)
+tile_set = SubResource("TileSet_dyjna")
+format = 2
+layer_0/tile_data = PackedInt32Array(-262149, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2087, 1732)
+zoom = Vector2(0.1, 0.1)
