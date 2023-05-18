@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2x71bcnx4umm"]
+[gd_scene load_steps=10 format=3 uid="uid://2x71bcnx4umm"]
 
 [ext_resource type="Script" path="res://scenes/_main.gd" id="1_m4y2c"]
 [ext_resource type="PackedScene" uid="uid://c4fdvdtx7b16a" path="res://scenes/game/mapmaker/_map_maker.tscn" id="2_j4nbq"]
 [ext_resource type="PackedScene" uid="uid://dskvy7yahfemq" path="res://scenes/game/maprenderer/_map_renderer.tscn" id="3_tsp8w"]
 [ext_resource type="Texture2D" uid="uid://fj442ur3hxub" path="res://assets/_debug_tile_set/Rectangle 255.png" id="4_0afl6"]
 [ext_resource type="Texture2D" uid="uid://bdwtpllwcrdb2" path="res://assets/_debug_tile_set/debug_purple.png" id="5_f1vi2"]
+[ext_resource type="PackedScene" uid="uid://bdv6ls70dgef0" path="res://scenes/game/characters/player/_player.tscn" id="6_65hnt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_howcp"]
 texture = ExtResource("4_0afl6")
@@ -40,3 +41,6 @@ layer_0/tile_data = PackedInt32Array(-1, 0, 0)
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(5000, 5000)
 zoom = Vector2(0.083, 0.083)
+
+[node name="_Player" parent="." instance=ExtResource("6_65hnt")]
+max_speed = 2000

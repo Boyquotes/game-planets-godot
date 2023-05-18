@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdv6ls70dgef0"]
+[gd_scene load_steps=5 format=3 uid="uid://bdv6ls70dgef0"]
 
 [ext_resource type="Script" path="res://scenes/game/characters/player/_player.gd" id="1_uhlby"]
 [ext_resource type="Texture2D" uid="uid://cxadmvgvvkl3p" path="res://assets/_debug_tile_set/Rectangle 256.png" id="2_uexat"]
@@ -14,8 +14,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="_Player" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gsmh"]
+size = Vector2(100, 100)
+
+[node name="_Player" type="CharacterBody2D"]
+position = Vector2(50, 50)
 script = ExtResource("1_uhlby")
+max_speed = 500
+acceleration = 2000
+friction = 5000
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p7o7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1gsmh")
+
+[node name="StartPosition" type="Marker2D" parent="."]

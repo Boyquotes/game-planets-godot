@@ -1,35 +1,40 @@
-extends Node2D
+extends CharacterBody2D
 
 # this is our main player script
+# movement is based on https://www.youtube.com/watch?v=Xf62e3VrLOg&t=59s
 
-@export var speed = 400
-var screen_size
+@export var max_speed = 300
+@export var acceleration = 1500
+@export var friction = 1200
+@onready var axis = Vector2.ZERO
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _physics_process(delta):
+	move(delta)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func get_input_axis():
+	axis = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	return axis.normalized()
+
+
+func move(delta):
+	axis = get_input_axis()
 	
-	# TODO: move this to a script attached to AnimatedSprite2D
-	
-	var velocity = Vector2.ZERO # the player's movement vector
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+	if axis == Vector2.ZERO:
+		apply_friction(friction * delta)
 	else:
-		$AnimatedSprite2D.stop()
-	position += velocity * delta
-	position.x = clamp(position.x, 100, screen_size.x - 100)
-	position.y = clamp(position.y, 100, screen_size.y - 100)
+		apply_movement(axis * acceleration * delta)
+		
+	move_and_slide()
+
+
+func apply_friction(amount):
+	if velocity.length() > amount:
+		velocity -= velocity.normalized() * amount
+	else:
+		velocity = Vector2.ZERO
+		
+
+func apply_movement(accel):
+	velocity += accel
+	velocity = velocity.limit_length(max_speed)
