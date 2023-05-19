@@ -18,7 +18,7 @@ animations = [{
 size = Vector2(100, 100)
 
 [node name="_Player" type="CharacterBody2D"]
-position = Vector2(50, 50)
+position = Vector2(150, 150)
 script = ExtResource("1_uhlby")
 max_speed = 500
 acceleration = 2000

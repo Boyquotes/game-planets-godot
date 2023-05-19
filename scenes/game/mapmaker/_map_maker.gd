@@ -7,9 +7,9 @@ extends Node2D
 ## inspector variables
 #@export var tilemap_node: TileMap
 #@export var tileset_source: TileSet
-@export var random_seed = 1.0
-@export var random_seed_fill_percent = 60
-@export var map_size = 2
+@export var random_seed: float
+@export var random_seed_fill_percent: int
+@export var map_size: int
 
 
 var map_dict_from_json = {}

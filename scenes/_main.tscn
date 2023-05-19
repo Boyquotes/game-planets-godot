@@ -28,7 +28,9 @@ current_player_coords = [284, 712]
 tile_map = NodePath("TileMap")
 
 [node name="_MapMaker" parent="." instance=ExtResource("2_j4nbq")]
-random_seed_fill_percent = 5
+random_seed = 1.1
+random_seed_fill_percent = 60
+map_size = 2
 
 [node name="_MapRenderer" parent="." instance=ExtResource("3_tsp8w")]
 
